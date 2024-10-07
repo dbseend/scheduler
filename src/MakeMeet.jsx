@@ -1,91 +1,8 @@
-import { addDoc, collection } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { addDoc, collection } from "firebase/firestore";
 import { dbService } from "./fbase";
-
-// 스타일 정의
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px;
-`;
-
-const TitleInput = styled.input`
-  width: 300px;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-`;
-
-const DescriptionInput = styled.textarea`
-  width: 300px;
-  height: 100px;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-`;
-
-const DateInput = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-`;
-
-const Select = styled.select`
-  padding: 10px;
-  margin-right: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-`;
-
-const Button = styled.button`
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  background-color: #4caf50;
-  color: white;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #45a049;
-  }
-`;
-
-const CalendarContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-  margin-top: 20px;
-`;
-
-const DayBox = styled.div`
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  background-color: ${(props) => (props.isSelected ? "#f39c12" : "#f0f0f0")};
-  color: ${(props) => (props.isSelected ? "white" : "black")};
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${(props) => (props.isSelected ? "#45a049" : "#ddd")};
-  }
-`;
-
-// 새로운 시간 선택 드롭다운 스타일
-const TimeSelect = styled.select`
-  width: 100px;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-`;
 
 // 메인 컴포넌트
 const MeetingScheduler = () => {
@@ -277,5 +194,88 @@ const MeetingScheduler = () => {
     </Container>
   );
 };
+
+// 스타일 정의
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+`;
+
+const TitleInput = styled.input`
+  width: 300px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+`;
+
+const DescriptionInput = styled.textarea`
+  width: 300px;
+  height: 100px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+`;
+
+const DateInput = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+`;
+
+const Select = styled.select`
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+`;
+
+const Button = styled.button`
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #45a049;
+  }
+`;
+
+const CalendarContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-top: 20px;
+`;
+
+const DayBox = styled.div`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: ${(props) => (props.isSelected ? "#f39c12" : "#f0f0f0")};
+  color: ${(props) => (props.isSelected ? "white" : "black")};
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${(props) => (props.isSelected ? "#45a049" : "#ddd")};
+  }
+`;
+
+// 새로운 시간 선택 드롭다운 스타일
+const TimeSelect = styled.select`
+  width: 100px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+`;
 
 export default MeetingScheduler;
